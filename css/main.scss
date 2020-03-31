@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,900;1,100;1,200&display=swap');
+@import "scss/fontawesome.scss";
+@import "scss/solid.scss";
+
+$colors: (
+    primary: #D70646,
+    accent: #212121,
+    bgColor: #ffffff
+);
+
+$padding: 15px;
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat';
+    margin: 0;
+
+    header {
+
+        span#facebook {
+            @extend %fa-icon;
+            @extend .fas;
+    
+            &:before {
+                content: fa-content($fa-var-facebook);
+            }
+        }
+        span#linkedin {
+            @extend %fa-icon;
+            @extend .fab;
+    
+            &:before {
+                content: fa-content($fa-var-linkedin);
+            }
+        }
+    }
+
+    a#logo {
+        font-size: 2em;
+        color: #000000;
+        font-weight: 400;
+        text-decoration:none;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #bg {
+        background-color: color(bgColor);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+
+    div#top-headerbar, div#main-headerbar {
+        width: 100%;
+    }
+}
+
+main {
+    background-color: color(bgColor);
+
+    #left, #right, img {
+        width: 100%;
+    }
+}
