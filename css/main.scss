@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,900;1,100;1,200&display=swap');
 @import "scss/fontawesome.scss";
+@import "scss/brands.scss";
 @import "scss/solid.scss";
+@import "scss/regular.scss";
 
 $colors: (
     primary: #D70646,
     accent: #212121,
-    bgColor: #ffffff
+    whiteColor: #ffffff
 );
 
 $padding: 15px;
+
+// Burger menu button
+$burger--thickness: 4px;
 
 @function color($color-name) {
     @return map-get($colors, $color-name)
@@ -24,21 +29,50 @@ body {
 
     header {
 
+        span {
+            padding: 5px;
+            font-size: 1.3em;
+            color: color(primary);
+        }
         span#facebook {
             @extend %fa-icon;
-            @extend .fas;
-    
+            @extend .fab;
+
             &:before {
-                content: fa-content($fa-var-facebook);
+                content: fa-content($fa-var-facebook-f);
             }
         }
         span#linkedin {
             @extend %fa-icon;
             @extend .fab;
-    
+
             &:before {
-                content: fa-content($fa-var-linkedin);
+                content: fa-content($fa-var-linkedin-in);
             }
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+          }
+
+        li {
+            list-style: none;
+            padding: 5px 10px;
+            a {
+                color:#707070;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: color(primary);
+                  }
+            }
+        }
+
+        #top-headerbar li {
+            display: inline-block;
+            float: right;
         }
     }
 
@@ -49,10 +83,12 @@ body {
         text-decoration:none;
         display: block;
         margin: 0 auto;
+        float: left;
+        padding: 5px;
     }
 
     #bg {
-        background-color: color(bgColor);
+        background-color: color(whiteColor);
         width: 100%;
         height: 100%;
         position: absolute;
@@ -62,12 +98,122 @@ body {
     div#top-headerbar, div#main-headerbar {
         width: 100%;
     }
+
+    //Colapssable Burger Menu
+    .burger {
+        clear: both;
+        $width: 28px;
+        display: inline-block;
+        border: 0;
+        background: none;
+        outline: 0;
+        padding: 0;
+        cursor: pointer;
+        border-bottom: $burger--thickness solid color(primary);
+        width: $width;
+        float: right;
+        margin: 5px;
+    
+        transition: border-bottom 1s ease-in-out;
+        -webkit-transition: border-bottom 1s ease-in-out; 
+    
+        // Fix for extra space in Firefox
+        &::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }	 
+    
+        &:before {
+            content: "";
+            display: block;
+            border-bottom: $burger--thickness solid color(primary);
+            width: 100%;
+            margin-bottom: 5px;
+            transition: transform 0.5s ease-in-out;    
+            -webkit-transition: -webkit-transform 0.5s ease-in-out;        
+        }
+    
+        &:after {
+            content: "";
+            display: block;
+            border-bottom: $burger--thickness solid color(primary);
+            width: 100%;
+            margin-bottom: 5px;
+            transition: transform 0.5s ease-in-out;
+            -webkit-transition: -webkit-transform 0.5s ease-in-out;
+        }
+    }
+    
+    .burger-check {
+      display: none;
+    }
+    
+    .burger-check:checked ~ .burger {
+      border-bottom: $burger--thickness solid transparent;
+      transition: border-bottom 0.8s ease-in-out;
+      -webkit-transition: border-bottom 0.8s ease-in-out;
+    
+      &:before {
+        transform: rotate(-405deg) translateY(1px) translateX(-3px);
+        -webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);      
+        transition: transform 0.5s ease-in-out;
+        -webkit-transition: -webkit-transform 0.5s ease-in-out;
+      }
+    
+      &:after {
+        transform: rotate(405deg) translateY(-4px) translateX(-5px); 
+        -webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);       
+        transition: transform 0.5s ease-in-out;
+        -webkit-transition: -webkit-transform 0.5s ease-in-out;
+      }
+    }
+    
+    // * * * Navigation * * *
+    $navigation__transition: max-height 0.5s ease-in-out;
+    
+    .navigation {
+        clear: both;
+        overflow: hidden;
+        max-height: 0;
+        transition: $navigation__transition;
+    }
+    
+    .burger-check:checked ~ .navigation {
+      max-height: 500px;
+      transition: $navigation__transition;
+    }
 }
 
 main {
-    background-color: color(bgColor);
+    background-color: color(whiteColor);
 
     #left, #right, img {
         width: 100%;
+    }
+
+    .pink-cta {
+        color: color(whiteColor);
+        background-color: color(primary);
+        padding: $padding;
+        border-style: none;
+        font-size: 1em;
+        border-radius: 3px;
+    }
+
+    section#section1 {
+        background-image: url("../images/team-meeting.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        text-align: center;
+        padding: 100px 30px;
+
+        &:after {
+            box-shadow: 0px 0px 0px 4000px rgba(27, 61, 88, 0.5) inset;
+        }
+
+        h2, p {
+            color: #ffffff;
+        }
     }
 }

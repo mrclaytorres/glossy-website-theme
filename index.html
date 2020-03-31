@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gloss</title>
     <link rel="stylesheet" href="css/main.css">
+    <script defer src="js/main.js"></script>
 </head>
 <body>
 
@@ -13,33 +14,37 @@
     <header>
         <div id="top-headerbar">
             <ul>
-                <li><a href="#"><span id="facebook"></span></a></li>
                 <li><a href="#"><span id="linkedin"></span></a></li>
+                <li><a href="#"><span id="facebook"></span></a></li>
             </ul>
         </div>
         <div id="main-headerbar">
             <a id="logo" href="#">Gloss</a>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">What We Offer</a></li>
-                <li><a href="#">Solutions</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Sign In</a></li>
-            </ul>
+            <input class="burger-check" id="burger-check" type="checkbox">
+            <label for="burger-check" class="burger"></label>
+            <nav id="navigation1" class="navigation">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">What We Offer</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Sign In</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main>
-        <section id="sectoin1">
+        <section id="section1">
         <div class="left">
             <h2>We Improve Thinking</h2>
             <p>You may not set strategy, but you make it happen <br/>We are here to help you succeed.</p>
-            <p><button>Get Started Now</button></p>
+            <p><button class="pink-cta">Get Started Now</button></p>
         </div>
         <div class="right"></div>
         </section>
-        <section id="sectoin2">
+        <section id="section2">
             <div class="left"><img src="http://via.placeholder.com/640x360" alt=""></div>
             <div class="right">
                 <h2>Aenean Commodo Ligula Aenean Massa</h2>
@@ -47,15 +52,15 @@
                 <p><button>Browse Course</button></p>
             </div>
         </section>
-        <section id="sectoin3">
+        <section id="section3">
             <div class="left">
                 <h2>Lorem Ipsum Dolor Sit Amet</h2>
                 <p>The Big Oxmox advised her not to do so, because there were thousandaas of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn't listen. She packed here seven versali, put her initial into the belt and make herself on the way. When she reached the first hills of the italik Mountains, she had a last view back on the skyline of her hometown.</p>
-                <p><button>Learn More</button></p>
+                <p><button class="pink-cta">Learn More</button></p>
             </div>
             <div class="right"><img src="http://via.placeholder.com/640x360" alt=""></div>
         </section>
-        <section id="sectoin4">
+        <section id="section4">
             <h2>Lorem Ipsum Dolor Sit Amet</h2>
             <p>Cum socilis natoque pentibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
             <div>
@@ -79,11 +84,11 @@
                 <p>Position</p>
             </div>
         </section>
-        <section id="sectoin5">
+        <section id="section5">
             <div class="left">
                 <h2>Lorem Ipsum Dolor Sit Amet</h2>
             </div>
-            <div class="right"><p><button>Improve Thinking</button></p></div>
+            <div class="right"><p><button class="pink-cta">Improve Thinking</button></p></div>
         </section>
     </main>
     <footer>
