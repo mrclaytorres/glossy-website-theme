@@ -6082,6 +6082,7 @@ body header span#linkedin {
 
 body, html {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -6136,10 +6137,29 @@ body header li a:hover {
           text-decoration-color: #D70646;
 }
 
+@media (min-width: 840px) {
+  body header li {
+    display: inline-block;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 840px) {
+  body header #top-headerbar ul {
+    padding: 15px 5px 0 0;
+  }
+}
+
 body header #top-headerbar li {
   display: inline-block;
   float: right;
   padding: 0;
+}
+
+@media (min-width: 840px) {
+  body header #top-headerbar li {
+    font-size: 12px;
+  }
 }
 
 body a#logo {
@@ -6151,6 +6171,16 @@ body a#logo {
   margin: 0 auto;
   float: left;
   padding: 5px;
+  position: absolute;
+  left: 15px;
+  top: 10px;
+}
+
+@media (min-width: 840px) {
+  body a#logo {
+    padding: 0px 5px 10px 15px;
+    top: 30px;
+  }
 }
 
 body #bg {
@@ -6163,6 +6193,12 @@ body #bg {
 
 body div#top-headerbar, body div#main-headerbar {
   width: 100%;
+}
+
+@media (min-width: 840px) {
+  body div#main-headerbar {
+    display: inline-block;
+  }
 }
 
 body .burger {
@@ -6210,6 +6246,12 @@ body .burger:after {
   -webkit-transition: -webkit-transform 0.5s ease-in-out;
 }
 
+@media (min-width: 840px) {
+  body .burger {
+    display: none;
+  }
+}
+
 body .burger-check {
   display: none;
 }
@@ -6246,6 +6288,26 @@ body .navigation {
   transition: max-height 0.5s ease-in-out;
 }
 
+@media (min-width: 840px) {
+  body .navigation {
+    max-height: 100%;
+    display: inline-block;
+    margin-top: 14px;
+    float: right;
+    clear: none;
+  }
+  body .navigation ul {
+    margin-right: 9px;
+  }
+  body .navigation li:last-child {
+    border: 1px solid #D70646;
+    border-radius: 3px;
+  }
+  body .navigation li:last-child a {
+    color: #D70646;
+  }
+}
+
 body .burger-check:checked ~ .navigation {
   max-height: 500px;
   -webkit-transition: max-height 0.5s ease-in-out;
@@ -6275,6 +6337,33 @@ main .pink-cta {
 main section {
   text-align: center;
   padding: 40px 10px;
+}
+
+@media (min-width: 840px) {
+  main section {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% auto;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "left right";
+  }
+}
+
+@media (min-width: 840px) {
+  main section .left {
+    grid-area: left;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 1em;
+  }
+}
+
+@media (min-width: 840px) {
+  main section .right {
+    grid-area: right;
+    height: fit;
+  }
 }
 
 main section h2 {
@@ -6325,6 +6414,10 @@ main section#section3 .right {
   background-position: center;
 }
 
+main section#section4 {
+  display: initial;
+}
+
 main section#section4 h3 {
   margin: 5px;
 }
@@ -6337,19 +6430,37 @@ main section#section4 img {
   border-radius: 5px;
 }
 
-main section#section5 {
+main section#section5 h3 {
+  margin-bottom: 15px;
+}
+
+@media (min-width: 840px) {
+  main section#section5 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(12rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-gap: 5px;
+  }
+}
+
+main section#section6 {
   background-color: #D70646;
 }
 
-main section#section5 h2 {
+main section#section6 h2 {
   color: #ffffff;
 }
 
-main section#section5 .pink-cta {
+main section#section6 .pink-cta {
   border: 1px solid #ffffff;
 }
 
 footer {
   text-align: center;
+}
+
+footer h6 {
+  font-weight: 400;
 }
 /*# sourceMappingURL=main.css.map */

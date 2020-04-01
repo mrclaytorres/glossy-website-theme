@@ -13,6 +13,15 @@ $colors: (
 
 $padding: 15px;
 
+// Tab View
+$tab: 840px;
+
+@mixin for-tab {
+    @media (min-width: #{$tab}) {
+        @content;
+    }
+}
+
 // Burger menu button
 $burger--thickness: 4px;
 
@@ -22,6 +31,7 @@ $burger--thickness: 4px;
 
 body, html {
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -79,12 +89,26 @@ body {
                     text-decoration-color: color(primary);
                   }
             }
+            @include for-tab {
+                display: inline-block;
+                font-size: 13px;
+            }
+        }
+
+        #top-headerbar ul {
+            @include for-tab {
+                padding: 15px 5px 0 0;
+            }
         }
 
         #top-headerbar li {
             display: inline-block;
             float: right;
             padding: 0;
+
+            @include for-tab {
+                font-size: 12px;
+            }
         }
     }
 
@@ -97,6 +121,14 @@ body {
         margin: 0 auto;
         float: left;
         padding: 5px;
+        position: absolute;
+        left: 15px;
+        top: 10px;
+
+        @include for-tab {
+            padding: 0px 5px 10px 15px;
+            top: 30px;
+        }
     }
 
     #bg {
@@ -109,6 +141,12 @@ body {
 
     div#top-headerbar, div#main-headerbar {
         width: 100%;
+    }
+
+    div#main-headerbar {
+        @include for-tab {
+            display: inline-block;
+        }
     }
 
     //Colapssable Burger Menu
@@ -154,10 +192,13 @@ body {
             transition: transform 0.5s ease-in-out;
             -webkit-transition: -webkit-transform 0.5s ease-in-out;
         }
+        @include for-tab {
+            display: none;   
+        }
     }
     
     .burger-check {
-      display: none;
+        display: none;
     }
     
     .burger-check:checked ~ .burger {
@@ -188,6 +229,26 @@ body {
         overflow: hidden;
         max-height: 0;
         transition: $navigation__transition;
+
+        @include for-tab {
+            max-height: 100%;
+            display: inline-block;
+            margin-top: 14px;
+            float: right;
+            clear: none;
+
+            ul {
+                margin-right: 9px;
+            }
+
+            li:last-child {
+                border: 1px solid color(primary);
+                border-radius:  3px;
+                a {
+                    color: color(primary);
+                }
+            }
+        }
     }
     
     .burger-check:checked ~ .navigation {
@@ -197,6 +258,7 @@ body {
 }
 
 main {
+
     background-color: color(whiteColor);
 
     #left, #right, img {
@@ -216,8 +278,31 @@ main {
     }
 
     section {
+
+        @include for-tab {
+            display: grid;
+            grid-template-columns: 50% auto;
+            grid-template-areas: "left right";
+
+        }
+
         text-align: center;
         padding: 40px 10px;
+
+        .left {
+            @include for-tab {
+                grid-area: left;
+                height: fit-content;
+                margin: 1em;
+            }
+        }
+
+        .right {
+            @include for-tab {
+                grid-area: right;
+                height: fit;
+            }
+        }
     }
 
     section h2 {
@@ -233,6 +318,7 @@ main {
     }
 
     section#section1 {
+
         background-image: url("../images/team-meeting.jpg");
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -250,6 +336,7 @@ main {
     }
 
     section#section3 {
+
         background-color: color(accent);
         color: color(whiteColor);
         padding: 0;
@@ -267,6 +354,7 @@ main {
     }
 
     section#section4 {
+        display: initial;
         h3{
             margin: 5px;
         }
@@ -278,7 +366,20 @@ main {
         }
     }
 
-    section#section5 {
+    section#section5{
+
+        h3 {
+            margin-bottom: 15px;
+        }
+
+        @include for-tab {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+            grid-gap: 5px;
+        }
+    }
+
+    section#section6 {
         background-color: color(primary);
         h2 {
             color: color(whiteColor);
@@ -291,4 +392,8 @@ main {
 
 footer {
     text-align: center;
+
+    h6 {
+        font-weight: 400;
+    }
 }
